@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: none;
+            background-color: #f2f2f2;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number Manipulation</h1>
+        <p>Please enter a number:</p>
+        <input type="number" id="userInput">
+        <button onclick="manipulateNumber()">Manipulate</button>
+        <p style="text-align: left;"><strong>Result-</strong> <span id="output"></span></p>
+        <p style="text-align: left;"><strong>Next 3 even numbers-</strong> <span id="outputEven"></span></p>
+        <p style="text-align: left;"><strong>Next 3 odd numbers-</strong> <span id="outputOdd"></span></p>
+    </div>
+
+    <script>
+        function manipulateNumber(){
+            let userInput = parseInt(document.getElementById("userInput").value);
+            let output = document.getElementById("output");
+            let outputEven = document.getElementById("outputEven");
+            let outputOdd = document.getElementById("outputOdd");
+
+            if(userInput < 0){
+                userInput *= -1;
+                output.innerText = `The absolute value of your input is ${userInput}.`;
+            }
+            else if(userInput % 2 === 0){
+                output.innerText = `The next three even numbers after your input are:`;
+                outputEven.innerText = `${userInput + 2}, ${userInput + 4}, ${userInput + 6}`;
+                outputOdd.innerText = "";
+            }
+            else{
+                output.innerText = `The next three odd numbers after your input are:`;
+                outputOdd.innerText = `${userInput + 2}, ${userInput + 4}, ${userInput + 6}`;
+                outputEven.innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>
